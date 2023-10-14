@@ -1,20 +1,20 @@
-### Text Processing Proj
+# Text Processing Proj
 
 ## Layout
 
-# Email Class
+### Email Class
 First I’ll explain the layout of my project, then I’ll explain what I found easy / what I struggled with. My Email class is meant for creating Email objects. In order to create an Email object, there are a few things required to pass in: an email id, the text of the email, a Map of the features of the email, and a boolean whether it's actually spam or not (not the prediction).
 The purpose of this class was to be able to add Email objects to an array list. In order to get summary data of a group of emails. The methods in this class include: getEmailID, getRawText, toString, isActualSpam, and getFeatures which returns a map. 
 
-# ReadFile Class
+### ReadFile Class
 The next class, ReadFile is meant for reading the csv file of emails, creating Email objects for each line, and adding that Email object to an arrayList of Email objects. In order to do this, the features are found on some counts I thought of, And adding them to a <String,Integer> map. While doing this, the accuracy of my predictions whether the email is spam or not using the get nearest neighbors approach, will be calculated. The ReadFile class also has methods to get an Email object with the id, and calculate summary data. First for the summary data, I wanted to do the mean, median, and standard deviation, for every individual count. However, I just stuck with the median of each count. This is why my predictions weren’t the best. I added a calculateMedian function to make finding the summary features easier. I also have a method to calculate the euclidean distance, Originally, I was planning on just comparing the distance between an email and the features of summary data from the spam/not spam data sets, then classify that email as spam / not spam to whichever dataset feature’s it was closer too. However, my accuracy for this method was way too low, and I wanted to see if I could get it higher. Therefore, I decided to try the other method, classifying whether an email was spam or not using the nearest neighbors method. Which worked much better for classifying.
 
-# EmailClassifierGUI Class
+### EmailClassifierGUI Class
 The third and final class, EmailClassifierGui, was purely made to implement GUI to show the results easier. This class is pretty straightforward with just a couple buttons, one OptionDialong, and some TextFiled and TextArea
 
-# Files explanation
+## Files explanation
 Overall, if you want to see the results for each email, and the accuracy, you can run the ReadFile class. The predicted accuracies are all the way at the bottom. If you want to see a GUI implementation of the project, you can run the EmailClassifier class. Within this GUI, you can get an email’s text and features with the email’s id. You can also Display the summary data of a group of emails, of all the emails between the two specified email IDs. You can also classify if it is spam or not, based on the nearest neighbors approach. Finally, you can calculate the distance between either an email, and the spam/not spam data features, which was my original approach. You can also calculate the distance between two given email IDs. Both of these distance calculations use the Euclidean distance.
 
-# Self reflection
+## Self reflection
 This project was pretty straightforward, but at the same time, pretty challenging for me. From the beginning, I knew what I was going to do, but I didn’t exactly know how I was going to do it. I knew reading the file, getting the features for each email, and creating Email objects with the features was going to be pretty easy. But after that, I was pretty unfamiliar with everything else. The hardest part for me was just understanding how the Euclidean Distance and Nearest Neighbors approach worked. Implementing my maps to these algorithms was a challenge for me. The EmailClassifierGUI class was difficult for me at times. I didn’t exactly know how I was going to implement the options when choosing to calculate the distance between the spam/not spam data sets, or calculating the distance between two emails. However, I learned from online to use the InputDialog, which was very helpful. The results I recieved for accuracy was 43.2% for the spam emails, and 98.12% for the not spam email prediction accuracy. One thing that I would do to improve this project even futher, is to add some more counts, like char chount, bigram count, and maybe average word length. I think the more the counts I can add to the features, the more accurate my results will be.
 
